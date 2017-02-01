@@ -1,7 +1,6 @@
 package lab2;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 /**
  * In this lab focus on METHOD encapsulation and fix/add code as necessary.
