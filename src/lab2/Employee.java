@@ -1,13 +1,10 @@
 package lab2;
-
-
-
 /**
  * In this lab focus on METHOD encapsulation and fix/add code as necessary.
  * Pay special attention to the following issues:
- *    1. Not all methods need to be public
+ *    1. Not all methods need to be public                                      Most of new Hire process was made private
  *    2. When methods need to be called in a certain order you can do this
- *       by creating a parent method that calls the other, helper methods.
+ *       by creating a parent method that calls the other, helper methods.      "putAllOfTheStepsInSequence" method was created to make the process more sequential.
  *    3. There is some duplicate code used that violates the D.R.Y. principle.
  *       Eliminate that by encapsulating the duplicate code in a new method
  *       and then call that method in place of the duplicate code

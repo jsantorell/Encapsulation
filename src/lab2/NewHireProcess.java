@@ -69,22 +69,20 @@ public class NewHireProcess extends Employee { //Private Variables
 
     // Assume this must be performed first, and assume that an employee
     // would only do this once, upon being hired.
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);
-        System.out.println(super.getFirstName() + " " + super.getLastName() + " met with Hr on "
+        String fmtDate = formatDateProperlyAndMakeItUnique(orientationDate);
+        System.out.println(makeAFullName() + " met with Hr on "
                 + fmtDate);
 
     }
 
     // Assume this must be performed first, and assume that an employee
     // would only do this once, upon being hired.:
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         metDeptStaff = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);
-        System.out.println(super.getFirstName() + " " + super.getLastName() + " met with Dept. Staff on "
+        String fmtDate = formatDateProperlyAndMakeItUnique(orientationDate);
+        System.out.println(makeAFullName() + " met with Dept. Staff on "
                 + fmtDate);
     }
 
@@ -93,9 +91,8 @@ public class NewHireProcess extends Employee { //Private Variables
     // independently from other classes.
     public void reviewDeptPolicies() {
         reviewedDeptPolicies = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);
-        System.out.println(super.getFirstName() + " " + super.getLastName() + " reviewed Dept policies on "
+        String fmtDate = formatDateProperlyAndMakeItUnique(orientationDate);
+        System.out.println(makeAFullName() + " reviewed Dept policies on "
                 + fmtDate);
     }
 
@@ -105,10 +102,31 @@ public class NewHireProcess extends Employee { //Private Variables
     public void moveIntoCubicle(String cubeId) {
         this.cubeId = cubeId;
         this.movedIn = true;
-        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        String fmtDate = sdf.format(orientationDate);
-        System.out.println(super.getFirstName() + " " + super.getLastName() + " moved into cubicle "
+        String fmtDate = formatDateProperlyAndMakeItUnique(orientationDate);
+        System.out.println(makeAFullName() + " moved into cubicle "
                 + cubeId + " on " + fmtDate);
+    }
+
+    private String makeAFullName() {
+
+        String name = super.getFirstName() + " " + super.getLastName();
+
+        return name;
+    }
+
+    private static SimpleDateFormat formatDateProperly() {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
+
+        return sdf;
+    }
+
+    private String formatDateProperlyAndMakeItUnique(Date od) {
+
+        this.orientationDate = od;
+        String fmtDate = formatDateProperly().format(od);
+
+        return fmtDate;
     }
 
     //Getters and Setters
