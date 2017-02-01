@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author jerem
  */
-public class NewHireProcess extends Employee {
+public class NewHireProcess extends Employee { //Private Variables
 
     private boolean metWithHr;
     private boolean metDeptStaff;
@@ -21,6 +21,7 @@ public class NewHireProcess extends Employee {
     private String cubeId;
     private Date orientationDate;
 
+    //New Hire Constructor
     public NewHireProcess(boolean metWithHr, boolean metDeptStaff, boolean reviewedDeptPolicies, boolean movedIn, String cubeId, Date orientationDate, String firstName, String lastName, String ssn) {
         super(firstName, lastName, ssn);
         this.metWithHr = metWithHr;
@@ -33,23 +34,36 @@ public class NewHireProcess extends Employee {
     }
 
 //Steps involved in new hire process >>>
-    public void inSequence(boolean metWithHr, boolean metDeptStaff, boolean reviewedDeptPolicies) {
+    //Add a logical step-by-step to the process
+    public void putAllOfTheStepsInSequence(boolean metWithHr, boolean metDeptStaff, boolean reviewedDeptPolicies) {
 
-        if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
+        if (orientationDate != null) { //If the employee has an orientation
+            if (metWithHr && metDeptStaff && reviewedDeptPolicies) {// If emplyee has met with HR, Dept Staff and reviewd dept policies.
+                if (cubeId != null) {// If HR setup a cubicle number.
+                    System.out.println("Your Orientation is complete!");
+                    moveIntoCubicle(cubeId);
+                } else {// If the initial steps are completed but HR has not set up a cubicle number.
+                    System.out.println("Your Orientation is complete! "
+                            + "An HR representative will contact you with your cubicle number.");
+                }
+            } else {// If employee has not completed 1 of the initial steps check which one(s) are missing.
+                if (metWithHr) {//Did they meet with HR?
+                } else {//If not go through the proper step
+                    this.meetWithHrForBenefitAndSalryInfo();
+                }
+                if (metDeptStaff) { //did they meet dept staff?
+                } else {//If not go through the proper step
+                    this.meetDepartmentStaff();
+                }
+                if (reviewedDeptPolicies) {//Did they review dept. policies?
 
-        } else {
-            if (metWithHr) {
-            } else {
-                this.meetWithHrForBenefitAndSalryInfo();
+                } else {//If not go through the proper step
+                    this.reviewDeptPolicies();
+                }
             }
-            if (metDeptStaff) {
-            } else {
-                this.meetDepartmentStaff();
-            }
-            if (reviewedDeptPolicies) {
-                this.reviewDeptPolicies();
-            } else {
-            }
+        } else {// If they do not have an orientation date.
+            System.out.println("You do not have an orientation date set yet."
+                    + "Please Contact an HR representative to establish an orientation date.");
         }
     }
 
