@@ -1,5 +1,7 @@
 package lab4;
 
+import java.util.Scanner;
+
 /**
  * This class is the startup class for the program. But together with the 
  * other classes provided it is not a particularly good simulation of the 
@@ -11,12 +13,19 @@ package lab4;
  */
 public class Startup {
     public static void main(String[] args) {
-
-        
+   
         Company company = new Company();
+
+   
         
-        // Startup delegates work to Company which then delegates work to HRManager
-        company.hireEmployee("Peter","Piper","333-33-3333");
+        
+        company.hireEmployee("Jay", "Santos", "1234567890",true, false, true);
+        
+       
+        
+        
+    
+
     }
     
     
