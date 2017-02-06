@@ -40,6 +40,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String ssn;
+    private Reports report;
     
 private NewEmployeeOrientation neo;
     
@@ -49,6 +50,7 @@ private NewEmployeeOrientation neo;
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
+        report = new Reports();
     }
     
     
@@ -90,5 +92,21 @@ private NewEmployeeOrientation neo;
         this.ssn = ssn;
     }
 
- 
-}
+     public Reports getReport() {
+        return report;
+    }
+
+    public void setReport(Reports report) {
+        this.report = report;
+    }
+    
+        public void outputReport(String ssn) {
+        Employee e = null;
+
+      
+
+            e.getReport().outputReport();
+
+        }
+    }
+
